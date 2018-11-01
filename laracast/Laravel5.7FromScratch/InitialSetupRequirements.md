@@ -15,9 +15,11 @@ Ben projeyi /var/www/htm altına oluşturdum.
 
 Bu klasörde projeyi açtığımda log yazamadığını gördüm. Yetki hatası vardı gidermek için aşağıdaki kodları kullandım.
 
-```sudo chown -R $USER:www-data /var/www/html/blog
+```
+sudo chown -R $USER:www-data /var/www/html/blog
 
-chmod -R 775 storage```
+chmod -R 775 storage
+```
 
 `which composer`
 komutu composer in nasıl kurulduğunu anlamak için kullanılır. Gelen cevap
