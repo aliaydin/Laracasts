@@ -1,4 +1,4 @@
-##Basic Routing
+## Basic Routing
 
 `php artisan serve`
 
