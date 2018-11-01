@@ -1,3 +1,4 @@
+## Initial Setup Requirements
 
 Laraveli kurmak için laravel.com Documentation sayfasını gidip. oradan install Laravel bölümüne tıklanır.
 Laraveli kurabilmek için Composer kullanılır.
