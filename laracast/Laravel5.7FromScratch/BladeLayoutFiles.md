@@ -37,7 +37,7 @@ Hatta `@yield('title', 'Default Title')` ile varsayılan title da verilebilir.
 
 Aynı şekilde section kullanılırken de 2. parametre ile değer verilebilir.
 
-`@seciton('title', 'contact')`
+`@section('title', 'contact')`
 
 Yukarıdaki kullanımda `@endsection` kullanılmaz.
 Zaten herşey fonksiyona verilen parametre ile tamamlanmaktadır. Blok açılmadığı için kapatmaya gerek yok.

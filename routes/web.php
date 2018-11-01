@@ -12,7 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $tasks = [
+      'Go to the store',
+      'Go to the market',
+      'Go to work',
+      'Go to the concert'
+    ];
+
+    // return view('welcome')->withTasks($tasks)->withFoo('foo');
+    return view('welcome', [
+      'tasks' => $tasks,
+      'foo' => 'foobar',
+      'title' => Request('title'),
+      'hack' => '<script>alert("Hacked");</script>'
+    ]);
+
+
+    /* methodWay
+    return view('welcome')->with([
+      'tasks' => $tasks,
+      'foo' => 'foobar',
+      'title' => Request('title'),
+      'hack' => '<script>alert("Hacked");</script>']);
+    */
+
 });
 
 
