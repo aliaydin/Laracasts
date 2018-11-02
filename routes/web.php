@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
+Route::get('/contact', 'PageController@contact');
+Route::get('/about'. 'PageController@about');
+
+
+/*
 Route::get('/', function () {
 
     $tasks = [
@@ -36,10 +42,10 @@ Route::get('/', function () {
       'title' => Request('title'),
       'hack' => '<script>alert("Hacked");</script>']);
     */
-
+/*
 });
-
-
+*/
+/*
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -47,3 +53,4 @@ Route::get('/contact', function () {
 Route::get('/about', function() {
   return view('about');
 });
+*/

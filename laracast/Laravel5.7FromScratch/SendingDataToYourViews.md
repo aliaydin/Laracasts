@@ -1,4 +1,4 @@
-## Sending Data to Your Views
+## Sending Data to Your Views ##
 
 Controller dan View e veri göndermek için View metoduna 2. parametre verilmelidir.
 Bu parametre bir dizidir ve hazırladığımız veriler bu dizi üzerinden view e gönderilir.
@@ -24,6 +24,7 @@ Bu kodun Blade ile yazılmış versiyonu:
 @endforeach
 ```
 foreach {} yerine foreach endforeach kullanımı okunabilirliği arttırmak için sonradan eklendi.
+
 Sayfa derlendiğinde Blade @ kullanılan kısımları <?php yi çevirir.
 Yapılan bu işlem cache te tutulur ve 2. istekte daha hızlı cevap verilir.
 
