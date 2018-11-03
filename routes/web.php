@@ -14,7 +14,7 @@
 Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
 Route::get('/contact', 'PageController@contact');
 Route::get('/about', 'PageController@about');
-
+Route::get('/projects', 'ProjectsController@index');
 
 /*
 Route::get('/', function () {

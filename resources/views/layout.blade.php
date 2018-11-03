@@ -11,6 +11,7 @@
         <a href="/">Home</a>
         <a href="/contact">Contact Us</a>
         <a href="/about">About Us</a>
+        <a href="/projects">Projects</a>
       </li>
   </body>
 </html>

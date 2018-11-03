@@ -1,4 +1,4 @@
-## Laravel5.7FromScratch
+## Laravel5.7FromScratch ##
 
 [InitialSetupRequirements](InitialSetupRequirements.md)
 
@@ -11,3 +11,5 @@
 [Controllers 101](Controllers101.md)
 
 [Databases And Migrations](DatabasesAndMigrations.md)
+
+[Eloquent, Namespacing, and MVC](EloquentNamespacingAndMVC.md)
