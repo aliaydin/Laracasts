@@ -13,3 +13,5 @@
 [Databases And Migrations](DatabasesAndMigrations.md)
 
 [Eloquent, Namespacing, and MVC](EloquentNamespacingAndMVC.md)
+
+[Directory Structure Review](DirectoryStructureReview.md)
