@@ -15,11 +15,28 @@ Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekild
 Route::get('/contact', 'PageController@contact');
 Route::get('/about', 'PageController@about');
 
+/*
+
+  GET /projects (index) // Tüm kayıtları listele
+  GET /projects/create (create) // Kullanıcıya bilgileri gireceği bir form gösterir
+  GET /projects/1 (show) // Bir kaydı gösterir
+  POST /projects (store) // Yeni bir kayıt oluştur. Bunu çağırmak için öncesinde bir form göstermek gerekir.
+  GET /projects/1/edit (edit) // Kullanıcıya bilgileri güncelleyebileceği bir form gösterir
+  PATCH /projects/1 (update) // Bir kaydı günceller
+  DELETE /projects/1 (destroy) // Bir kaydı siler
+
+Yukarıdaki tanımlamarın implemente edilmiş hali
 
 Route::get('/projects', 'ProjectsController@index');
-Route::post('/projects', 'ProjectsController@store');
 Route::get('/projects/create', 'ProjectsController@create');
+Route::get('/projects/{project}', 'ProjectsController@show');
+Route::post('/projects', 'ProjectsController@store');
+Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+Route::patch('/projects/{project}', 'ProjectsController@update');
+Route::delete('/projects/{project}', 'ProjectsController@destroy');
+*/
 
+Route::resource('projects', 'ProjectsController'); // Yukarıdaki 7 rota tanımını karşılayan tek rota
 
 /*
 Route::get('/', function () {

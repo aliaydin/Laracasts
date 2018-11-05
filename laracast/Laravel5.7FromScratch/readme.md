@@ -17,3 +17,5 @@
 [Directory Structure Review](DirectoryStructureReview.md)
 
 [Form Handling and CSRF Protection](FormHandlingAndCSRFProtection.md)
+
+[Routing Conventions Worth Following](RoutingConventionsWorthFollowing.md)
