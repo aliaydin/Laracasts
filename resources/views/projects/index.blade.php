@@ -1,8 +1,11 @@
 @extends('layout')
 
 @section('content')
-    <h2>Projects</h2>
+
+    <h1> Projects </h1>
+
       @foreach ($projects as $project)
         <li> {{ $project->title }} </li>
       @endforeach
+
 @endsection

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
   </head>
   <body>
+
     <div class="container">
 
       <ul>
@@ -15,6 +16,7 @@
           <a href="/about">About Us</a>
           <a href="/projects">Projects</a>
         </li>
+      </ul
 
       @yield('content')
 

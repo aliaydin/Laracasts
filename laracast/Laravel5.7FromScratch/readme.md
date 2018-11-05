@@ -21,3 +21,5 @@
 [Routing Conventions Worth Following](RoutingConventionsWorthFollowing.md)
 
 [Faking PATCH and DELETE Requests](FakingPatchAndDeleteRequests.md)
+
+[Form Delete Requests](FormDeleteRequests.md)
