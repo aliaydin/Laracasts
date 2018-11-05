@@ -19,3 +19,5 @@
 [Form Handling and CSRF Protection](FormHandlingAndCSRFProtection.md)
 
 [Routing Conventions Worth Following](RoutingConventionsWorthFollowing.md)
+
+[Faking PATCH and DELETE Requests](FakingPatchAndDeleteRequests.md)
