@@ -31,4 +31,4 @@ return redirect('projects');
 
 Eğer istersen bu middleware lerin de koduna bakabilirsin. Her middleware handle adında bir metot içerir. Implementasyon `VerifyCsrfToken.php` dosyası içerisinde.
 
-__CSRF (Cross-Site Request Forgery):__ Farklı bir domainden bizim scriptimize post isteği yapılması anlamına gelir. Bu güvenlik önlemi zaten Laravel tarafından sağlanıyor. Kullanıcıya düşen tek şey bunu formlara `{{ csrf_field }}` kodunu eklemek.
+__CSRF (Cross-Site Request Forgery):__ Farklı bir domainden bizim scriptimize istek yapılması anlamına gelir. Bu güvenlik önlemi zaten Laravel tarafından sağlanıyor. Kullanıcıya düşen tek şey bunu formlara `{{ csrf_field }}` kodunu eklemek.
