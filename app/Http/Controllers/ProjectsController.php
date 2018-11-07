@@ -25,43 +25,62 @@ class ProjectsController extends Controller
 
     public function store() {
 
+
+      // Project::create(request()->all()); // Bu kullanılacaksa Project model de $fillable tanımlanmalı.
+
+      Project::create(request(['title', 'description'])); // En temiz kod.
+
+/* // 2. ve request in array özelliğini kullanmayan yol
+      Project::create([
+        'title' => request('title'),
+        'description' => request('description')
+      ]);*/
+/* // İlk ve en uzun yol
       $project = new Project();
 
       $project->title = request('title');
       $project->description = request('description');
 
       $project->save();
-
+*/
       return redirect('projects');
 
     }
 
-    public function edit($id) {
+    public function edit(Project $project) {
 
-      $project = Project::findOrFail($id);
+      // $project = Project::findOrFail($id); // edit update destroy ve show için bu işlem yapıldı. $id gitti Project $project geldi.
 
       return view('projects.edit', compact('project'));
 
     }
 
-    public function update($id) {
+    public function update(Project $project) {
 
-      $project = Project::findOrFail($id);
-
+      Project::update(request(['title', 'description'])); // En temiz kod.
+      
+/*
       $project->title = request('title');
       $project->description = request('description');
 
       $project->save();
-
+*/
       return redirect('/projects'); // Normalde burada show a gitmesi gerekir. Şimdilik böyle
 
     }
 
-    public function destroy($id) {
+    public function destroy(Project $project) {
 
-      Project::findOrFail($id)->delete();
+      $project->delete();
 
       return redirect('/projects');
 
     }
+
+    public function show(Project $project) {
+
+      return view('projects.show', compact('project'));
+
+    }
+
 }

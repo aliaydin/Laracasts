@@ -23,3 +23,5 @@
 [Faking PATCH and DELETE Requests](FakingPatchAndDeleteRequests.md)
 
 [Form Delete Requests](FormDeleteRequests.md)
+
+[Cleaner Controllers and Mass Assignment Concerns](CleanerControllersAndMassAssignmentConcerns.md)
