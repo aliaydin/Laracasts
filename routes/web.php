@@ -37,7 +37,7 @@ Route::delete('/projects/{project}', 'ProjectsController@destroy');
 */
 
 Route::resource('projects', 'ProjectsController'); // Yukarıdaki 7 rota tanımını karşılayan tek rota
-
+Route::PATCH('/tasks/{task}', 'ProjectTasksController@update');
 /*
 Route::get('/', function () {
 
