@@ -27,3 +27,5 @@
 [Cleaner Controllers and Mass Assignment Concerns](CleanerControllersAndMassAssignmentConcerns.md)
 
 [Two Layers Of Validation](TwoLayersOfValidation.md)
+
+[Your First Eloquent Relationships](YourFirstEloquentRelationships.md)
