@@ -1,4 +1,4 @@
-## Laravel5.7FromScratch ##
+## Laravel 5.7 From Scratch ##
 
 [InitialSetupRequirements](InitialSetupRequirements.md)
 

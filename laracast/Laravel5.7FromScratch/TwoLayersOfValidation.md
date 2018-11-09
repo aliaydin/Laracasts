@@ -1,8 +1,8 @@
 ## Two Layers Of Validation ##
 
-Formu kaydetmek istediğimizde alanları boş bıraksak dahi form submit ediliyor. Ve SQL hatası alıyorum. Alanların girildiğinden emin olmam gerekiyor.
+Formu kaydetmek istediğimizde alanları boş bıraksak dahi form submit ediliyor. Ve `SQL` hatası alıyorum. Alanların girildiğinden emin olmam gerekiyor.
 
-Bunun için öncelikle Client Side Validation yapmak gerekiyor. Önce javaScript ile bu kontrolleri yaparken artık zorunlu alanlara required yazarak bu alanların boş geçilememesini sağlayabiliyoruz. Tabi uygulamanın güvenliğini sadece client ta tutmak doğru değil. F12 ile gelip o yazıyı oradan kaldırarak yine de bu alanı boş geçebilirler. Bu yüzde backend te de bir şeyler yapmak gerekiyor.
+Bunun için öncelikle `Client Side Validation` yapmak gerekiyor. Önce `javaScript` ile bu kontrolleri yaparken artık zorunlu alanlara `required` yazarak bu alanların boş geçilememesini sağlayabiliyoruz. Tabi uygulamanın güvenliğini sadece client ta tutmak doğru değil. `F12` ile gelip o yazıyı oradan kaldırarak yine de bu alanı boş geçebilirler. Bu yüzde backend te de bir şeyler yapmak gerekiyor.
 
 Formu gönderdiğimizde `store` metodu çalışıyor. Validation burada yapılmalı. `request()` metodu bize nesne döner. Bu nesnenin validate metodunu kullanabiliriz.
 
