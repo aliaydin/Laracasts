@@ -25,3 +25,5 @@
 [Form Delete Requests](FormDeleteRequests.md)
 
 [Cleaner Controllers and Mass Assignment Concerns](CleanerControllersAndMassAssignmentConcerns.md)
+
+[Two Layers Of Validation](TwoLayersOfValidation.md)

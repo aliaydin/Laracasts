@@ -25,10 +25,17 @@ class ProjectsController extends Controller
 
     public function store() {
 
+      // Validation: validate metodu işini bitirdikten sonra bize alanları döner.
+      $validated = request()->validate([
+        'title' => ['required', 'min:3'],
+        'description' => 'required'
+      ]);
 
       // Project::create(request()->all()); // Bu kullanılacaksa Project model de $fillable tanımlanmalı.
 
-      Project::create(request(['title', 'description'])); // En temiz kod.
+      Project::create($validated); // request yollamana gerek yok alanlar $validate ten geliyor.
+
+      //Project::create(request(['title', 'description'])); // En temiz kod.
 
 /* // 2. ve request in array özelliğini kullanmayan yol
       Project::create([
@@ -58,7 +65,7 @@ class ProjectsController extends Controller
     public function update(Project $project) {
 
       Project::update(request(['title', 'description'])); // En temiz kod.
-      
+
 /*
       $project->title = request('title');
       $project->description = request('description');
