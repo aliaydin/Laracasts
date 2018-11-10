@@ -51,4 +51,26 @@ public function project() {
 }
 ```
 
-Bu kod eklenmesine rağmen ben de null verdi. Eğitimde ilk taskın bağlı olduğu proje bilgileri geliyor. Biz `App\Task::first()` dediğimizde 1 query çalıştırıyoruz. `App\Task::first()->project` diyerek 2. bir query çalışıyor. Tani biz tanımlama yaptık diye kesinlikle joinler otomatik çalışmıyor. Sadece biz kullanmak istediğimiz durumda join yapılıyor.
+Tinker da baktığımda 2 tablo birbirine bağlı görünüyor. Task üzerinden projeye erişebiliyorum.
+
+```
+>>> App\Task::first()
+=> App\Task {#2910
+     id: 1,
+     project_id: 1,
+     description: "1. projenin taskı",
+     completed: 1,
+     created_at: "2018-11-03 12:28:29",
+     updated_at: "2018-11-09 11:42:56",
+   }
+>>> App\Task::first()->project;
+=> App\Project {#2908
+     id: 1,
+     title: "My first Project UPDAte",
+     description: "My first desc UPDAte",
+     created_at: "2018-11-03 12:28:29",
+     updated_at: "2018-11-05 11:08:05",
+   }
+```
+
+Biz `App\Task::first()` dediğimizde 1 query çalıştırıyoruz. `App\Task::first()->project` diyerek 2. bir query çalışıyor. Tani biz tanımlama yaptık diye kesinlikle joinler otomatik çalışmıyor. Sadece biz kullanmak istediğimiz durumda join yapılıyor.

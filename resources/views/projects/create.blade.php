@@ -8,11 +8,11 @@
         {{ csrf_field() }}
 
         <div class="">
-          <input type="text" name="title" placeholder="Project title" class="{{ ($errors->has('title')) ? 'is-danger' : '' }}" value="{{ old('title') }}">
+          <input type="text" name="title" placeholder="Project title" required class="{{ ($errors->has('title')) ? 'is-danger' : '' }}" value="{{ old('title') }}">
         </div>
 
         <div class="">
-          <textarea name="description" rows="8" cols="80" placeholder="Project description">{{ old('description') }}</textarea>
+          <textarea name="description" rows="8" cols="80" required placeholder="Project description">{{ old('description') }}</textarea>
         </div>
 
         <div class="">
