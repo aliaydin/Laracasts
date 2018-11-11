@@ -24,6 +24,7 @@ class ProjectTasksController extends Controller
         return back();
     }
 
+/* CompletedTasksController eklendikten sonra gerek kalmadı.
     public function update(Task $task) {
 
         $method = request()->has('completed') ? 'complete' : 'incomplete';
@@ -38,6 +39,8 @@ class ProjectTasksController extends Controller
             'completed' => request()->has('completed')
         ]);
 */
+
         return back();
     }
+    */
 }

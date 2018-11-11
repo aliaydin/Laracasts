@@ -35,3 +35,5 @@
 [Create New Project Tasks](CreateNewProjectTasks.md)
 
 [Better Encapsulation](BetterEncapsulation.md)
+
+[When in Doubt](WhenInDoubt.md)

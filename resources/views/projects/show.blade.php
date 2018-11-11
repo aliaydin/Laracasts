@@ -13,8 +13,11 @@
         <div class="box">
             @foreach($project->tasks as $task)
                 <div>
-                    <form method="post" action="/tasks/{{ $task->id }}">
-                        @method('PATCH')
+                    <form method="post" action="/completed-tasks/{{ $task->id }}">
+                        <!-- @method('PATCH') -->
+                        @if ($task->completed)
+                            @method('DELETE')
+                        @endif
                         @csrf
                         <div class="{{ $task->completed ? 'is-complete' : '' }}">
                             <input type="checkbox" name="completed" onchange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
@@ -32,7 +35,7 @@
             New Task <input type="text" name="description" placeholder="New Task">
             <button type="submit">Add Task</button>
         </div>
-        
+
         @include('errors')
     </form>
 
