@@ -33,3 +33,5 @@
 [Form Action Considerations](FormActionConsiderations.md)
 
 [Create New Project Tasks](CreateNewProjectTasks.md)
+
+[Better Encapsulation](BetterEncapsulation.md)
