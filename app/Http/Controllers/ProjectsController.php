@@ -5,26 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 
+use Illuminate\FileSystem\FileSystem;
+
 class ProjectsController extends Controller
 {
+    public function show(FileSystem $file) {
+        dd($file);
+        return view('projects.show', compact('project'));
+    }
+
     //
     public function index() {
-
       $projects = Project::all(); // \app\Project:all();
       // return $projects; // json formatında veriyi gönder.
       // return view('projects.index', ['projects' => $projects]); // default
       return view('projects.index', compact('projects'));
-
     }
 
     public function create() {
-
       return view('projects.create');
-
     }
 
     public function store() {
-
       // Validation: validate metodu işini bitirdikten sonra bize alanları döner.
       $validated = request()->validate([
         'title' => ['required', 'min:3'],
@@ -51,23 +53,19 @@ class ProjectsController extends Controller
       $project->save();
 */
       return redirect('projects');
-
     }
 
     public function edit(Project $project) {
-
       // $project = Project::findOrFail($id); // edit update destroy ve show için bu işlem yapıldı. $id gitti Project $project geldi.
 
       return view('projects.edit', compact('project'));
-
     }
 
     public function update(Project $project) {
-
       Project::update(request(['title', 'description'])); // En temiz kod.
 
 /*
-      $project->title = request('title');
+      $project->title = request('titpublic function show(Project $project) {le');
       $project->description = request('description');
 
       $project->save();
@@ -77,17 +75,11 @@ class ProjectsController extends Controller
     }
 
     public function destroy(Project $project) {
-
       $project->delete();
 
       return redirect('/projects');
-
     }
 
-    public function show(Project $project) {
 
-        return view('projects.show', compact('project'));
-
-    }
 
 }

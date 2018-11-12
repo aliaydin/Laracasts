@@ -10,8 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*app()->singleton('example', function() {
+    return new \App\Example;
+});
+*/
+use App\Services;
 
-Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
+app()->singleton("twitter", function() {
+    return new App\Services\Twitter('api_key');
+});
+
+Route::get('/', function () {
+
+    $twitter = app('twitter');
+    dd($twitter);
+    dd(app('App\Example'));
+});
+//Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
 Route::get('/contact', 'PageController@contact');
 Route::get('/about', 'PageController@about');
 

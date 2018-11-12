@@ -37,3 +37,5 @@
 [Better Encapsulation](BetterEncapsulation.md)
 
 [When in Doubt](WhenInDoubt.md)
+
+[Core Concepts: Service Container and Auto-Resolution](CoreConcepts_ServiceContainerAndAuto-Resolution.md)
