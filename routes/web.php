@@ -15,17 +15,26 @@
 });
 */
 use App\Services;
+use App\Services\Twitter;
 
+use App\Repositories\UserRepository;
+/*
 app()->singleton("twitter", function() {
     return new App\Services\Twitter('api_key');
 });
+*/
 
-Route::get('/', function () {
-
-    $twitter = app('twitter');
+Route::get('/', function (UserRepository $users) {
+    dd($users);
+});
+/*
+Route::get('/', function (Twitter $twitter) {
+    dd($twitter);
+    $twitter = app('Twitter');
     dd($twitter);
     dd(app('App\Example'));
 });
+*/
 //Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
 Route::get('/contact', 'PageController@contact');
 Route::get('/about', 'PageController@about');
