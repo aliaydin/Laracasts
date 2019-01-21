@@ -6,6 +6,7 @@ Bu parametre bir dizidir ve hazırladığımız veriler bu dizi üzerinden view 
 `return view('welcome', ['tasks' => $tasks]);`
 
 Kodu ile welcome view dosyası tasks değişkeni ile yükleniyor.
+
 Bu değişkeni viewde aşağıdaki gibi kullanabiliriz.
 
 ```
@@ -13,7 +14,9 @@ Bu değişkeni viewde aşağıdaki gibi kullanabiliriz.
   <li><?= $task; ?> </li>
 <?php } ?>
 ```
+
 View de bu şekilde php kullanıldığında çirkin görünüyor. Blade gibi templete engine ler de bu yüzden oluşturuldu.
+
 Blade kullanmak için @ işareti (Razorda da aynısı var.) kullanılır.
 
 Bu kodun Blade ile yazılmış versiyonu:
@@ -23,9 +26,10 @@ Bu kodun Blade ile yazılmış versiyonu:
   <li> {{ $task }} </li>
 @endforeach
 ```
+
 foreach {} yerine foreach endforeach kullanımı okunabilirliği arttırmak için sonradan eklendi.
 
-Sayfa derlendiğinde Blade @ kullanılan kısımları <?php yi çevirir.
+Sayfa derlendiğinde Blade @ kullanılan kısımları <?php yi çevirir. Mesela `@foreach` ifadesini `<?php foreach` e çevirir.
 Yapılan bu işlem cache te tutulur ve 2. istekte daha hızlı cevap verilir.
 
 Controllerdan sadece kendi tanımladığımız değişkenleri değil queryString ile gelen verileri de gönderebiliriz.
@@ -42,6 +46,7 @@ return view('welcome', [
 ]);
 ```
 Echo için `<?= short_tag` yerine `{{ }}` kullanılır. Fakat `{{ }}` sadece echo yapmaz.
+
 Aynı zamanda gelen veriyi escape eder.
 
 `'hack' => '<script>alert("Hacked");</script>'`
@@ -49,13 +54,17 @@ Aynı zamanda gelen veriyi escape eder.
 gibi zararlı bir kod geldiğinde bu kodu `&lt;script&gt;alert(&quot;Hacked&quot;);&lt;/script&gt;` haline çevirir.
 
 Gelen verinin escape edilmesini istemezsem `{!! !!}` şeklinde kullanırım, ama tercih edilmemelidir.
+
 Sonuçta gelen veriye güvenilmemelidir. Kullanıcıdan gelen her bilgi suçsuz olduğu ıspatlanıncaya kadar suçludur.
 
 Ayrıca veri gönderirken
 
 `return view('welcome')->withTasks($tasks)->withFoo('foo');`
 
-şeklinde bir kullanım da var. Bu kullanımda Laravel withTasks kısmındaki Tasks kısmını alıyor ve bir değişken olarak View e parametre olarak veriyor. Bu kullanım genelde 2. parametreye tek değişken gönderileceği zaman kullanışlıdır.
+şeklinde bir kullanım da var. Bu kullanımda Laravel withTasks kısmındaki Tasks kısmını alıyor ve bir değişken olarak View e parametre olarak veriyor. 
+
+Bu kullanım genelde 2. parametreye tek değişken gönderileceği zaman kullanışlıdır.
+
 Burada withTasks diye bir metot aslında yok. Burada Laravel Magic method kullanarak bu metodu çeviriyor.
 
 Hatta aynı kodu 2. parametre kullanmak yerine with metoduna parametre olarak ta verebiliriz.
@@ -69,3 +78,8 @@ return view('welcome')->with([
 ```
 
 Yukarıdaki 3 kullanım arasında en yaygın olanı 1. kullanımdır. Bu kullanım codeIgniter syntax ına da yakın.
+
+`
+The general rules is all user provided data whether is a through query string or search form or comment form, 
+all of that data is guilty until proven innocent
+` 

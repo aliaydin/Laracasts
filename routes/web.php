@@ -52,7 +52,7 @@ Route::get('/', function () {
     return view('welcome', [
         'tasks' => $tasks,
         'foo' => 'foobar',
-        'title' => Request('title'),
+        'title' => Request('title'), // Request burada queryStringle gelen bilgiyi temsil ediyor.
         'hack' => '<script>alert("Hacked");</script>'
     ]);
 
