@@ -40,4 +40,5 @@ Aynı şekilde section kullanılırken de 2. parametre ile değer verilebilir.
 `@section('title', 'contact')`
 
 Yukarıdaki kullanımda `@endsection` kullanılmaz.
+
 Zaten herşey fonksiyona verilen parametre ile tamamlanmaktadır. Blok açılmadığı için kapatmaya gerek yok.

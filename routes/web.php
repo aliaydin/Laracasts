@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
+
 /*app()->singleton('example', function() {
     return new \App\Example;
 });
@@ -27,6 +33,49 @@ app()->singleton("twitter", function() {
 Route::get('/', function (UserRepository $users) {
     dd($users);
 });
+
+
+Route::get('/', function (UserRepository $users) {
+    return view('welcome');
+});
+
+Route::get('/', function () {
+
+    $tasks = [
+        'Go to the store',
+        'Go to the market',
+        'Go to work',
+        'Go to the concert'
+    ];
+
+    // return view('welcome')->withTasks($tasks)->withFoo('foo');
+    return view('welcome', [
+        'tasks' => $tasks,
+        'foo' => 'foobar',
+        'title' => Request('title'),
+        'hack' => '<script>alert("Hacked");</script>'
+    ]);
+
+
+    /* methodWay
+    return view('welcome')->with([
+      'tasks' => $tasks,
+      'foo' => 'foobar',
+      'title' => Request('title'),
+      'hack' => '<script>alert("Hacked");</script>']);
+    */
+
+});
+
+
+
+Route::get('/contact', 'PageController@contact');
+
+Route::get('/contact', function() {
+    return view('contact');
+});
+
+
 /*
 Route::get('/', function (Twitter $twitter) {
     dd($twitter);
@@ -36,7 +85,7 @@ Route::get('/', function (Twitter $twitter) {
 });
 */
 //Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
-Route::get('/contact', 'PageController@contact');
+
 Route::get('/about', 'PageController@about');
 
 /*
@@ -66,35 +115,8 @@ Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
 Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 
-/*
-Route::get('/', function () {
-
-    $tasks = [
-      'Go to the store',
-      'Go to the market',
-      'Go to work',
-      'Go to the concert'
-    ];
-
-    // return view('welcome')->withTasks($tasks)->withFoo('foo');
-    return view('welcome', [
-      'tasks' => $tasks,
-      'foo' => 'foobar',
-      'title' => Request('title'),
-      'hack' => '<script>alert("Hacked");</script>'
-    ]);
 
 
-    /* methodWay
-    return view('welcome')->with([
-      'tasks' => $tasks,
-      'foo' => 'foobar',
-      'title' => Request('title'),
-      'hack' => '<script>alert("Hacked");</script>']);
-    */
-/*
-});
-*/
 /*
 Route::get('/contact', function () {
     return view('contact');

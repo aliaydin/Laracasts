@@ -47,3 +47,5 @@ Eğer view tanımlı değilse laravel in detaylı hata sayfası gösterilir.
 altına `contact.blade.php` isminde yeni bir view ekleyerek hatayı giderebilirsin.
 
 Eğer routes teki tanımlamayı kaldırırsak yapılan get isteğine karşılık bir rota bulunmadığı için 404 hatası alırız.
+
+Aynı rotadan 2 tane tanımlanırsa en sonra tanımlanan rota geçerli olur.
