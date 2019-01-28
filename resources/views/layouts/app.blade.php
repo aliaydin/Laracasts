@@ -16,9 +16,9 @@
 
       <ul>
         <li> <a href="{{ url('/') }}">Home</a> </li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/projects">Projects</a></li>
+        <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+        <li><a href="{{ url('/about') }}">About Us</a></li>
+        <li><a href="{{ url('/projects') }}">Projects</a></li>
         </li>
       </ul>
 

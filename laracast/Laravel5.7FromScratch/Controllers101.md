@@ -25,7 +25,7 @@ Bu sistem contact ve about sayfaları için de aynen uygulanabilir. Bunun için 
 
 ```
 Route::get('/contact', PageController@contact);
-Route::get('/about'. PageController@about);
+Route::get('/about', PageController@about);
 ```
 tanımlamasını yapmak ve bu sayfalar için PageController a bir ilgili metotları eklemek yeterlidir.
 

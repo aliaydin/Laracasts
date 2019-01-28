@@ -30,17 +30,15 @@ app()->singleton("twitter", function() {
 });
 */
 
-Route::get('/', function (UserRepository $users) {
-    dd($users);
-});
-
-
+/*
 Route::get('/', function (UserRepository $users) {
     return view('welcome');
 });
+*/
 
+// Basic Routing
 Route::get('/', function () {
-
+// Sending Data to Your Views
     $tasks = [
         'Go to the store',
         'Go to the market',
@@ -57,7 +55,7 @@ Route::get('/', function () {
     ]);
 
 
-    /* methodWay
+    /* methodWay // method yaklaşımı çok kullanılmıyor. Genelde kullanılan metoda 2. parametre olarak vermek.
     return view('welcome')->with([
       'tasks' => $tasks,
       'foo' => 'foobar',
@@ -67,14 +65,13 @@ Route::get('/', function () {
 
 });
 
+// Controllers 101
+Route::get('/contact', 'PageController@contact'); // Normalde bu şekilde gelen istekler controller lara gönderilmelidir.
 
-
-Route::get('/contact', 'PageController@contact');
-
-Route::get('/contact', function() {
-    return view('contact');
+// Basic Routing
+Route::get('/about', function() { // Bu yaklaşım statik ve bussiness layer olmayan projeler için ideal.
+    return view('about');
 });
-
 
 /*
 Route::get('/', function (Twitter $twitter) {
@@ -86,7 +83,6 @@ Route::get('/', function (Twitter $twitter) {
 */
 //Route::get('/', 'PageController@home'); // Aşağıdaki tanımlamayı bu şekilde de yapabiliriz.
 
-Route::get('/about', 'PageController@about');
 
 /*
 
@@ -118,11 +114,5 @@ Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 
 
 /*
-Route::get('/contact', function () {
-    return view('contact');
-});
 
-Route::get('/about', function() {
-  return view('about');
-});
 */
