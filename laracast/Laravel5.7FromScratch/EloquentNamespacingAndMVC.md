@@ -8,13 +8,15 @@ Eloquent, Laravel in Active Record Pattern implementasyonudur.
 
 Projects tablosunun tek bir kaydını tutacağı için class a Project adını verdik. projects tablosu için Project modeli.
 
+`İsimlendirme yapılırken Modeller her zaman singular olmalıdır. Çünkü tek kaydı temsil eder. DB de ise plural formda olmalıdır.`
+
 Komut çalıştırıldıktan sonra `app` klasörü içerisine `Project.php` adıyla model dosyası oluştu. 
 View ve Controller in yerini daha önce görmüştük. Bu bilgiyle birlikte MVC tamamlandı.
 
 `php artisan tinker` komutu ile terminalde Laravel kullanabileceğimiz bir program çalıştırabiliriz.
 
 Biz tinker içerisinde App\Project dediğimiz an artık Project modeline erişmiş durumdayız.
-Sınıfta nımlı static all(), first(), latest() gibi metotları çalıştırabiliriz.
+Sınıfta tanımlı static all(), first(), latest() gibi metotları çalıştırabiliriz.
 
 `\App\Project::all()` komutu projects tablosundaki tüm kayıtları verir.
  
@@ -110,7 +112,7 @@ Zaten Project.php nin namespace i olarak app tanımlı. (Tüm modellerde app tan
 Sınıfa erişirken tam yol tanımı verildi. Çünkü bir controller içerisindeyken zaten `namespace App\Http\Controllers;` 
 tanımlaması yapıldığı için `App\Http\Controllers` namespace si altındasın. Buradan direkt 'app' yazarsan bulunduğu yerden itibaren arar.
 Eğer uzunca yol tanımıyla uğraşmak istemezsen kullnacağın controler da `use App\Project;` diyerek o namespace i sayfaya ekleyebilirsin.
-!! Burada neden app değilde App kullanıldı? !!
+!! Burada neden app değilde App kullanıldı? app dediğimizde `Class 'app\Project' not found` diyor. !!
 
 Eğer böyle bir tanımlama yapıldıysa artık `$projects = Project::all()` diyerek aynı sonuca ulaşılabilir.
 Elde ettiğimiz kayıtlar controller içindeyken `return $projects;` ile dönebiliriz. Bu durumda ekrana Json formatında basılacaktır.
@@ -120,5 +122,14 @@ Bu json u view e göndermek için normal değişken gönderme yöntemi kullanıl
 `
 Ayrıca `return view('projects.index', compact('projects'));` şeklinde de veriyi view e gönderebiliriz.
 Değişkenleri compact komutuna string birer parametre olarak eklemeliyiz.
+
 View leri controller lara göre gruplandırmak daha sonradan yönetilmeyi kolaylaştırır. 
 Controller isminde klasör ve metot bir view olacak.
+
+Migration sırasında 
+
+` SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes `
+
+gibi bir hata alınırsa hatanın nedeni string alanların uzunluklarının verilmemesidir. Çözmek için 
+
+`$table->string('email')->index();` kodunu `$table->string('email', 200)->index();` olarak değiştir.

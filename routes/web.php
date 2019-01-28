@@ -73,6 +73,9 @@ Route::get('/about', function() { // Bu yaklaşım statik ve bussiness layer olm
     return view('about');
 });
 
+// Eloquent, Namespacing, and MVC
+Route::get('/projects', 'ProjectsController@index');
+
 /*
 Route::get('/', function (Twitter $twitter) {
     dd($twitter);
