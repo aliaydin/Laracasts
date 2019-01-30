@@ -76,6 +76,13 @@ Route::get('/about', function() { // Bu yaklaşım statik ve bussiness layer olm
 // Eloquent, Namespacing, and MVC
 Route::get('/projects', 'ProjectsController@index');
 
+// Form Handling and CSRF Protection
+Route::get('/projects/create', 'ProjectsController@create');
+Route::post('/projects', 'ProjectsController@store');
+
+
+
+
 /*
 Route::get('/', function (Twitter $twitter) {
     dd($twitter);
