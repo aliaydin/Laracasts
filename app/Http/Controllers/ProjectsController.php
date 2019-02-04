@@ -64,16 +64,25 @@ class ProjectsController extends Controller
         return redirect('projects');
     }
 
-    public function edit(Project $project)
+    // Faking PATCH and DELETE Requests
+    public function edit($id) // example.com/projects/{id}/edit
     {
-        // $project = Project::findOrFail($id); // edit update destroy ve show için bu işlem yapıldı. $id gitti Project $project geldi.
+        // Faking PATCH and DELETE Requests
+        $project = Project::findOrFail($id); // edit update destroy ve show için bu işlem yapıldı. $id gitti Project $project geldi.
 
-        return view('projects.edit', compact('project'));
+        return view('projects.edit', compact('project')); // ControllerName.ViewName
     }
 
-    public function update(Project $project)
+    public function update($id) //(Project $project)
     {
-        Project::update(request(['title', 'description'])); // En temiz kod.
+        $project = Project::find($id);
+
+        $project->title = request('title');
+        $project->description = request('description');
+
+        $project->save();
+
+        // Project::update(request(['title', 'description'])); // En temiz kod.
 
         /*
               $project->title = request('titpublic function show(Project $project) {le');
@@ -81,6 +90,7 @@ class ProjectsController extends Controller
 
               $project->save();
         */
+
         return redirect('/projects'); // Normalde burada show a gitmesi gerekir. Şimdilik böyle
 
     }

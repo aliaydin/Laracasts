@@ -7,7 +7,7 @@
 
       @foreach ($projects as $project)
 
-        <a href="/projects/{{ $project->id }}">
+        <a href="{{ url('projects/' . $project->id) }}">
           <li> {{ $project->title }} </li>
         </a>
       @endforeach
