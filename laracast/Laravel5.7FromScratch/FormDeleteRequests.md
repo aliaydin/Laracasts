@@ -24,3 +24,4 @@ Bu şekilde yapıldığında `404` sayfası gelir. Çünkü istenen `resourse` b
 
 Eğer controllerlardan herhangi birisinde hata varsa `php artisan route:list` çalışmayacaktır.
 
+Laravel de config le ilgili bir ayar yapıldıktan sonra `php artisan config:clear` komutu çalıştırılmalıdır.
