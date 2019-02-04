@@ -36,6 +36,7 @@ Route::get('/', function (UserRepository $users) {
 });
 */
 
+/*
 // Basic Routing
 Route::get('/', function () {
 // Sending Data to Your Views
@@ -63,15 +64,18 @@ Route::get('/', function () {
       'hack' => '<script>alert("Hacked");</script>']);
     */
 
-});
+/* }); */
+
 
 // Controllers 101
 Route::get('/contact', 'PageController@contact'); // Normalde bu şekilde gelen istekler controller lara gönderilmelidir.
 
-// Basic Routing
+/*// Basic Routing // php artisan route:list komutunda hataya neden oluyordu.
 Route::get('/about', function() { // Bu yaklaşım statik ve bussiness layer olmayan projeler için ideal.
     return view('about');
-});
+}); */
+
+Route::get('/about', 'PageController@about');
 
 // Eloquent, Namespacing, and MVC
 Route::get('/projects', 'ProjectsController@index');

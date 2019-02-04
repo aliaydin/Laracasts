@@ -75,12 +75,15 @@ class ProjectsController extends Controller
 
     public function update($id) //(Project $project)
     {
+        // ## Faking PATCH and DELETE Requests ##
         $project = Project::find($id);
 
         $project->title = request('title');
         $project->description = request('description');
 
         $project->save();
+
+        return redirect('/projects'); // Normalde burada show a gitmesi gerekir. Şimdilik böyle
 
         // Project::update(request(['title', 'description'])); // En temiz kod.
 
@@ -91,15 +94,22 @@ class ProjectsController extends Controller
               $project->save();
         */
 
-        return redirect('/projects'); // Normalde burada show a gitmesi gerekir. Şimdilik böyle
+
 
     }
 
-    public function destroy(Project $project)
+    // Form Delete Requests
+    public function destroy($id)
+        //(Project $project)
     {
+        // Form Delete Requests
+        Project::find($id)->delete();
+        return redirect(route('projects.index'));
+
+        /*
         $project->delete();
 
-        return redirect('/projects');
+        return redirect('/projects'); */
     }
 
 
