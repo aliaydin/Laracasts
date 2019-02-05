@@ -33,8 +33,15 @@ class ProjectsController extends Controller
     public function store()
     {
 
+        // Validation: validate metodu işini bitirdikten sonra bize alanları döner.
+        $validated = request()->validate([ // Eğer bu kısmı geçemezse redirect edecek.
+            'title' => ['required', 'min:3'],
+            'description' => 'required'
+        ]);
 
-        Project::create(request(['title', 'description'])); // 3. En temiz kod.
+        Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
+
+        // Project::create(request(['title', 'description'])); // 3. En temiz kod.
 
         return redirect('projects');
 
@@ -57,15 +64,11 @@ class ProjectsController extends Controller
         */
 
         /*
-                // Validation: validate metodu işini bitirdikten sonra bize alanları döner.
-                $validated = request()->validate([
-                    'title' => ['required', 'min:3'],
-                    'description' => 'required'
-                ]);
+
 
                 // Project::create(request()->all()); // Bu kullanılacaksa Project model de $fillable tanımlanmalı.
 
-                Project::create($validated); // request yollamana gerek yok alanlar $validate ten geliyor.
+
         */
 
     }
