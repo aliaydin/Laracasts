@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    // protected $fillable = ['title', 'description'];
+    // massAssignment hatası için eklendi.
+    // protected $fillable = ['title', 'description']; // whileList
+
     protected $guarded = [];
 
     public function tasks() {

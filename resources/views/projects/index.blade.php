@@ -5,11 +5,12 @@
     <h1> Projects </h1>
     <ul>
 
-      @foreach ($projects as $project)
-
-        <a href="{{ url('projects/' . $project->id) }}">
-          <li> {{ $project->title }} </li>
-        </a>
-      @endforeach
+        @foreach ($projects as $project)
+            <li>
+                <a href="{{ url('projects/' . $project->id) }}">
+                    {{ $project->title }}
+                </a>
+            </li>
+        @endforeach
     </ul>
 @endsection
