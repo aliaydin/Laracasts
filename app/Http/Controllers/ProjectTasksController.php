@@ -22,23 +22,25 @@ class ProjectTasksController extends Controller
         $project->addTask($attributes);
 
         return back();
-    //}
+    }
 
-/* CompletedTasksController eklendikten sonra gerek kalmadı.
-    public function update(Task $task) {
 
+    // Form Action Considerations
+    // CompletedTasksController eklendikten sonra gerek kalmadı.
+    public function update(Task $task) { // Route Model Binding
+
+        /*
         $method = request()->has('completed') ? 'complete' : 'incomplete';
         $task->$method();
-
-
-        //request()->has('completed') ? $task->complete() : $task->incomplete();
-        // $task->complete(request()->has('completed'));
-
-/* encapsulation refactor 1
+*/
+        /*
+        request()->has('completed') ? $task->complete() : $task->incomplete();
+        $task->complete(request()->has('completed'));
+*/
+        // /* encapsulation refactor 1
         $task->update([
             'completed' => request()->has('completed')
         ]);
-*/
 
         return back();
     }
