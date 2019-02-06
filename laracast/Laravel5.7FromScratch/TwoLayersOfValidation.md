@@ -62,6 +62,8 @@ Son olarak sayfa redirect edildiğinde bilgilerin de gelmesi sağlanabilir. Bunu
 
 `create` formu için sorun değil ama `edit` formunda validasyon sonrası Modelden gelen ya da validasyondan gelen veri ayrılmalı. 
 
+`value="{{ $errors->has('title') ? old('title') : $project->title }}"` kodu ile bu iş yapılabilir.
+
 Laravel da çok çok fazla validation rule var. Bunları ihtiyaç oldukta manual den bakıp uygulayabilirsin.
 
 Mesela parola doğrulamak için ilk alan `foo` ise 2. alanın ismi `foo_confirmation` olmalıdır. 
