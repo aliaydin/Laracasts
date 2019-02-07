@@ -25,8 +25,8 @@
             @endforeach
         </div>
     @endif
-<br>
-    <form class="box" method="post" action="/projects/{{ $project->id }}/tasks" >
+
+    <form class="box" method="post" action="{{ url('projects/' . $project->id . '/tasks') }}" >
         @csrf
         <div>
             New Task <input type="text" name="description" placeholder="New Task">
@@ -34,6 +34,7 @@
         </div>
 
         @include('errors')
+
     </form>
 
 @endsection

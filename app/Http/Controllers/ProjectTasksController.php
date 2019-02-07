@@ -10,16 +10,22 @@ use Illuminate\Http\Request;
 class ProjectTasksController extends Controller
 {
 
+    // Create New Project Tasks
     public function store(Project $project) {
-/*
+
+        // 1. yaklaşım. Bu klasik yaklaşım ama burada koda bakan adam project ve task arasındaki bağlantıyı göremiyor.
+        /*
         Task::create([
             'project_id' => $project->id,
             'description' => request('description')
         ]);
-*/
-        $attributes = request()->validate(['description' => 'required']);
+        */
 
-        $project->addTask($attributes);
+
+        // 2. yaklaşım. Projeye task eklenecekse bunu Project altındaki addTask ile yapmalıyız.
+        $attributes = request()->validate(['description' => 'required|min:5']); // doğrulama eklendi.
+        // $project->addTask(request('description')); // id bilgisi zaten $this->id de saklı.
+        $project->addTask($attributes); // id bilgisi zaten $this->id de saklı.
 
         return back();
     }

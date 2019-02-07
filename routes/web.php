@@ -80,12 +80,7 @@ Route::get('/about', 'PageController@about');
 // Eloquent, Namespacing, and MVC
 Route::get('/projects', 'ProjectsController@index');
 
-// Form Handling and CSRF Protection
-Route::get('/projects/create', 'ProjectsController@create');
-Route::post('/projects', 'ProjectsController@store');
 
-// Form Action Considerations
-Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 
 /*
@@ -121,7 +116,26 @@ Route::delete('/projects/{project}', 'ProjectsController@destroy');
 */
 
 Route::resource('projects', 'ProjectsController'); // Yukarıdaki 7 rota tanımını karşılayan tek rota
+
+// Form Handling and CSRF Protection
+Route::get('/projects/create', 'ProjectsController@create');
+Route::post('/projects', 'ProjectsController@store');
+
+// Form Action Considerations
+Route::patch('/tasks/{task}', 'ProjectTasksController@update');
+
+// Create New Project Tasks
+// Route::post('/tasks', 'ProjectTasksController@store'); // Kısa versiyonu tercih etmiyorum.
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
+
+
+
+
+
+
+
+
+
 // Route::patch('/tasks/{task}', 'ProjectTasksController@update'); // CompletedTasksController geldi
 Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
 Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');

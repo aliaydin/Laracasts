@@ -16,16 +16,25 @@ class Project extends Model
       return $this->hasMany(Task::class);
     }
 
-    public function addTask($task) {
+    /*
+    // Create New Project Tasks
+    public function addTask($description)
+    {
 
-        $this->tasks()->create($task);
-
-        // $this->tasks()->create(compact('description'));
+        // 2. yaklaşım. Project ve task arasındaki ilişkiyi kullanarak task a erişiyorum. Bu metot için tasks diyerek 2. bir sorgu çalışmıyor mu???
+        $this->tasks()->create(compact('description'));
 /*
+        // 1. yaklaşım. Task modeli elimizde ve direkt onun create metodunu çağırıyoruz
         return Task::create([
             'project_id' => $this->id,
             'description' => $description
-        ]);*/
+        ]);
+*/
+    /* } */
+
+    // 3. yaklaşım. Metot doğrulamadan gelen diziyi parametre olarak alacak. Kod tek satır! Eğer ekstra sql çalışmıyorsa en güzeli bu.
+    public function addTask($task) {
+        $this->tasks()->create($task);
     }
 
 }
