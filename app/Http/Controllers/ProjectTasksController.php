@@ -35,15 +35,17 @@ class ProjectTasksController extends Controller
     // CompletedTasksController eklendikten sonra gerek kalmadı.
     public function update(Task $task) { // Route Model Binding
 
-        /*
+        /* Dinamik metot kullanımını okumayı zorlaştırdığı için kullanmayacağım.
         $method = request()->has('completed') ? 'complete' : 'incomplete';
         $task->$method();
-*/
-        /*
+        */
+
         request()->has('completed') ? $task->complete() : $task->incomplete();
         $task->complete(request()->has('completed'));
-*/
-        // /* encapsulation refactor 1
+
+
+
+        // /* encapsulation refactor 1: Burada $task in update ini açıkça yazmak doğru değil.
         $task->update([
             'completed' => request()->has('completed')
         ]);
