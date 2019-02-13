@@ -1,8 +1,8 @@
-## Basic Routing
+## Basic Routing ##
 
 `php artisan serve`
 
-komutu ile Laravel development server sunucusunu başlattım. http://127.0.0.1:8000
+komutu ile Laravel development serverı (Aslında PHP build-in sunucu) başlattım. http://127.0.0.1:8000
 
 
 Tüm rotalar
@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 ```
 
-Route sınıfına ait static get metodu. Gelen get isteiğini al ve şu view dosyasını aç.
+Route sınıfına ait static get metodu. Gelen get isteğini al ve şu view dosyasını aç.
 Bu metot 2 parametre alıyor. 1. si isteğin yapıldığı adres (yani browser a yazılan adres), 2 si ise bir callback fonksiyonudur.
 
 Implementasyonda return view ile seçilen view dosyasını geri dönüyor.
@@ -26,7 +26,8 @@ Tüm view dosyaları ve diğer css, js dosyaları da (resources) altında
 
 `/resources/views/`
 
-altında bulunur. View doyaları .blade.php uzantılıdır. Bu sayede .php derleyici çalıştıktan sonra sayfayı 1 kez de template engine render eder.
+altında bulunur. View dosyaları .blade.php uzantılıdır. 
+Bu sayede .php derleyici çalıştıktan sonra sayfayı 1 kez de template engine render eder.
 
 Biz
 
