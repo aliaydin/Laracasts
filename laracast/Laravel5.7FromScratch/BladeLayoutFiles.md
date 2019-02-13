@@ -1,11 +1,12 @@
-## Blade Layout Files
+## Blade Layout Files ##
 
-about sayfası ekleyip oraya bir navigasyon eklendi. Daha sonra bu menu diğerlerine de eklendi.
-Bu menüdeki her değişiklik için tüm sayfalarda değişiklik yapmak gerekiyor.
-Bunu aşmak için tüm sayfalarda kullanılacak bir template e ihtiyaç var.
-Laravel de buna Layout deniyor. .net mvc de de benzer bir bir yapı vardı.
+`about` sayfası eklenip oraya bir navigasyon eklendi. Daha sonra bu menu diğerlerine de eklendi.
+Yani menu gibi ortak bir şeyi her sayfaya tek tek eklemek zaman kaybı. 
+Ayrıca bu menüdeki her değişiklik için tüm sayfalarda değişiklik yapmak gerekiyor. Bakım maliyeti yükseliyor.
+Bunu aşmak için tüm sayfalarda kullanılacak bir `template` e ihtiyaç var.
+Laravel de buna `Layout` deniyor. .net mvc de de benzer bir bir yapı vardı.
 
-Blade: kodlar php de derlendikten sonra sayfayı render eden bir yapıdır.
+__Blade:__ `.blade.php` uzantılı dosyalar php de derlendikten sonra sayfayı render eden bir `template engine` dir.
 Layout içerisine sayfanın yapısı kodlanır. Layout dosyası için genelde layout ya da master gibi isimler verilir.
 
 Sayfa yapısı tanımlandıktan sonra bu yapı içerine gelecek dinamik kısımlar için
@@ -14,13 +15,16 @@ Sayfa yapısı tanımlandıktan sonra bu yapı içerine gelecek dinamik kısıml
 
 komutu eklendi. Burada content isimli bir bölümün buraya ekleneceği söyleniyor.
 
+Layout dosyasında `@yield` ile tanımlı kısımları kullanabilmek için 
+o Layout u kullanan dosya da o yield için bir `section` tanımlanmalıdır.
+
 Layout dosyasını kullanacağımız dosyanın başına
 
 `@extends('layout')`
 
-demek yeterlidir. Eğer klasör içerisinde bir yapı varsa `dirName.fileName` olarak çağrılır. . Yerine / da kullanılabilir.
+demek yeterlidir. Eğer klasör içerisinde bir yapı varsa `dirName.fileName` olarak çağrılır. `.` Yerine `/` da kullanılabilir.
 
-Layout dosyaları için root /resources/views klasörüdür.
+Layout dosyaları için root `/resources/views` klasörüdür.
 
 ```
 @section('content')
