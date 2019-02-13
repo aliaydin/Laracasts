@@ -1,6 +1,6 @@
 ## Form Handling and CSRF Protection ##
 
-Bu bölümde yeni projects tablosuna yeni bir proje eklemeyi göreceğiz.
+Bu bölümde projects tablosuna yeni bir proje eklemeyi göreceğiz.
 
 Yeni bir kayıt oluşturacak formu göstereceğimiz sayfayı yapmadan önce onu `web.php` de tanımlamalıyız.
 
@@ -8,13 +8,17 @@ Yeni bir kayıt oluşturacak formu göstereceğimiz sayfayı yapmadan önce onu 
 
 Burada common conventions yeni bir kayıt oluşturacak formu @create metoduna eklemektir. 
 
-Bu rota eklendikten sonra `ProjectsController` a `create` metodu eklenmelidir. Ve sonra bu metot bir view göstereceği için o view tasarlanmalıdır. 
+Bu rota eklendikten sonra `ProjectsController` a `create` metodu eklenmelidir. 
+Ve sonra bu metot bir view göstereceği için o view tasarlanmalıdır. 
 View de form tanımlandı ve action kısmı `/projects` olarak belirlendi. Bu rotaya daha önce bir `GET` tanımı vardı. 
 Fakat form `POST` edildiği için bu request o rotayı kullanmayacak. Bu yüzden `POST` u karşılayacak bir rota eklenmeli.
 
-`web.php` ye `Route::post('/projects', 'ProjectsController@store');` kodu eklendi. Burada önceden yazdığımız create ve şimdi kullandığımız store metotları Laravel için convention dır. Metot isimlerine sadık kalmak gerekir.
+`web.php` ye `Route::post('/projects', 'ProjectsController@store');` kodu eklendi. 
+Burada önceden yazdığımız create ve şimdi kullandığımız store metotları Laravel için convention dır.
+Metot isimlerine sadık kalmak gerekir.
 
-Formdan gelen bilgileri almak için `return request()->all();` metodunu kullanıyoruz. Sadece tek bir alana ait bilgiyi almak için  `request('fieldName');` yazmak yeterli.
+Formdan gelen bilgileri almak için `return request()->all();` metodunu kullanıyoruz. 
+Sadece tek bir alana ait bilgiyi almak için  `request('fieldName');` yazmak yeterli.
 
 Tüm ayarlamaları yapıp isteği yaptığımızda bize `419` hatası döndü. Bu hata authToken ın eksik olmasından kaynaklanır. 
 Bunu düzeltmek için forma `{{ csrf_field() }}` kodu eklenir. Bu kod her istek için bize farklı bir token oluşturur. 
@@ -24,7 +28,8 @@ CSRF koruması Laravel le birlikte varsayılan olarak gelir. Ama istenirse kapat
 Gelen bilgileri DB ye kaydetmek için `Project` sınıfından bir nesne alıp verileri onun üzerinde tutmalı ve sonra kaydetmeliyiz.
 Biz daha önce `Project::all()` diyerek bu sınıfın static all metodunu kullanmıştık.
 
-İşlem bittikten sonra tüm projelerin listelendiği sayfaya dönmek için `redirect` metodunu kullanabiliriz. redirect default GET kullanır.
+İşlem bittikten sonra tüm projelerin listelendiği sayfaya dönmek için `redirect` metodunu kullanabiliriz. 
+`redirect` metodu default `GET verb` unu kullanır.
 
 ```
 $project = new Project();
