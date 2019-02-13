@@ -1,7 +1,5 @@
 ## Directory Structure Review ##
 
-`Sadece ilk planda lazım olan dosya ve klasörler incelenecek.`
-
 `.env` FW ile ilgili tüm ayarlar burada tutuluyor. Bu dosya `.gitignore` a ekli. Sunucuya gönderilmiyor. 
 Sonucuda bunun yerine config altındaki ayarlar kullanılıyor.
 
@@ -16,12 +14,17 @@ Bu proje başka bir makinede kurulmak istendiğinde bu dosya okunarak projenin o
 
 `\vendor` Tüm composer dependencies in yüklendiği yer.
 
-`\routes` `web.php` ile rotalama işlemleri yapılır. `comsole.php` ile artisana Closure yazılabiliyor. `api.php` Api rotalama burada.
+`\routes` `web.php` ile rotalama işlemleri yapılır. `console.php` ile artisana Closure yazılabiliyor. 
+
+`api.php` Hazırladığımız Web Api ler için rotalama buradan yapılıyor.
 
 `\public` Tüm resim dosyaları bu klasör altına yüklenmelidir. 
-Buradaki .js ve .css `resource` taki dosyaların derlenmiş hali. Bu derleme işlemini ise `webpack.mix.js` dosyası yapıyor.
 
-`\database` içerisinde migration dosyaları bulunur. Ayrıca oluşturulan tabloları beslemek için kullanılacak seeds dosyaları da bu klasöre eklenmelidir.  
+Buradaki .js ve .css `resource` taki dosyaların derlenmiş hali. 
+Bu derleme işlemini ise `webpack.mix.js` dosyası yapıyor.
+
+`\database` içerisinde migration dosyaları bulunur. 
+Ayrıca oluşturulan tabloları doldurmak için kullanılacak seeds dosyaları da bu klasöre eklenmelidir.  
 
 `\config` Tüm ayarlar bu klasörde. `app.php` ile uygulama ile ilgili ayarlar yapılır.
 Bu ayarlar yapılırken `'env' = 'production'` şeklinde sabit tanımlarla değil de `.env` dosyası üzerinden okuyacak şekilde yapılır.
