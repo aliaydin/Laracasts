@@ -1,4 +1,4 @@
-## Initial Setup Requirements
+## Initial Setup Requirements ##
 
 Laravel'i kurmak için laravel.com Documentation sayfasını gidip oradan Install Laravel bölümüne tıklanır.
 Kurulumu yapabilmek için öncelikle Composer yüklenmelidir. (Composer ile ilgili ayrı bir dokuman yazılacak.)
