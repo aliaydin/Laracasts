@@ -1,3 +1,3 @@
 ## Laracast
 
-[Laravel5.7FromScratch](Laravel5.7FromScratch/readme.md)
+[Laravel 5.7 From Scratch](Laravel5.7FromScratch/readme.md)
