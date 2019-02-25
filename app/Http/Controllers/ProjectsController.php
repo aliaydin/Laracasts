@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Project;
-
 use Illuminate\FileSystem\FileSystem;
 
 class ProjectsController extends Controller
@@ -19,11 +17,20 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects')); // return view('projects.index', ['projects' => $projects]); // default
     }
 
+    // Core Concepts: Service Container and Auto-Resolution
+    public function show(FileSystem $file)
+    {
+        dd($file);
+        return view('projects.show', compact('project'));
+        //return view('projects.show', compact('project'));
+    }
+
+    /*
     public function show(Project $project)
     {
         return view('projects.show', compact('project'));
         //return view('projects.show', compact('project'));
-    }
+    }*/
 
     public function create()
     {

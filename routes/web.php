@@ -11,30 +11,37 @@
 |
 */
 
-
-
-
-
-
 /*app()->singleton('example', function() {
     return new \App\Example;
 });
 */
 use App\Services;
 use App\Services\Twitter;
-
+use Illuminate\Filesystem\Filesystem;
 use App\Repositories\UserRepository;
-/*
-app()->singleton("twitter", function() {
-    return new App\Services\Twitter('api_key');
-});
-*/
 
-/*
-Route::get('/', function (UserRepository $users) {
-    return view('welcome');
+// Core Concepts: Service Container and Auto-Resolution
+app()->bind('example', function() {
+    return new \App\Example();
 });
-*/
+
+// Core Concepts: Service Container and Auto-Resolution
+app()->singleton("twitter", function() {
+    dd("he");
+    return new App\Services\Twitter('api_key'); // config('services.twitter.api_key');
+});
+
+// Core Concepts: Service Container and Auto-Resolution
+Route::get('/', function (Twitter $twitter) {
+    dd($twitter);
+    // dd(app('\App\Example'));
+    // dd(app(Filesystem::class));
+});
+
+
+
+
+
 
 /*
 // Basic Routing
@@ -128,14 +135,6 @@ Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 // Route::post('/tasks', 'ProjectTasksController@store'); // Kısa versiyonu tercih etmiyorum.
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 
-
-
 // Route::patch('/tasks/{task}', 'ProjectTasksController@update'); // CompletedTasksController geldi
 Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
 Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
-
-
-
-/*
-
-*/
