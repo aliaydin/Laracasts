@@ -24,10 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        /*
         // Core Concepts: Service Providers
+        // SocialServiceProvider altına taşındığı için buradaki kodu kapattım.
         $this->app->singleton("foo", function() {
             return "bar";
         });
+        */
 
 /*
         $this->app->bind(

@@ -15,18 +15,19 @@
     return new \App\Example;
 });
 */
+
 use App\Services;
 use App\Services\Twitter;
 use Illuminate\Filesystem\Filesystem;
 use App\Repositories\UserRepository;
 
 // Core Concepts: Service Container and Auto-Resolution
-app()->bind('example', function() {
+app()->bind('example', function () {
     return new \App\Example();
 });
 
 // Core Concepts: Service Container and Auto-Resolution
-app()->singleton("twitter", function() {
+app()->singleton("twitter", function () {
     dd("he");
     return new App\Services\Twitter('api_key'); // config('services.twitter.api_key');
 });
@@ -41,12 +42,10 @@ Route::get('/', function (Twitter $twitter) {
 */
 
 // Core Concepts: Service Providers
-Route::get('/', function() {
-   dd(app('foo'));
+Route::get('/', function (Twitter $twitter) {
+    dd($twitter);
+    // dd(app('foo'));
 });
-
-
-
 
 
 /*
@@ -92,8 +91,6 @@ Route::get('/about', 'PageController@about');
 
 // Eloquent, Namespacing, and MVC
 Route::get('/projects', 'ProjectsController@index');
-
-
 
 
 /*
