@@ -24,13 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        /* $this->app->singleton("foo", function() {
+        // Core Concepts: Service Providers
+        $this->app->singleton("foo", function() {
             return "bar";
-        }); */
+        });
 
+/*
         $this->app->bind(
             \App\Repositories\UserRepository::class,
             \App\Repositories\DbUserRepository::class
         );
+*/
     }
 }

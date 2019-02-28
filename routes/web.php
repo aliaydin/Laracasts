@@ -32,12 +32,18 @@ app()->singleton("twitter", function() {
 });
 
 // Core Concepts: Service Container and Auto-Resolution
+/*
 Route::get('/', function (Twitter $twitter) {
     dd($twitter);
     // dd(app('\App\Example'));
     // dd(app(Filesystem::class));
 });
+*/
 
+// Core Concepts: Service Providers
+Route::get('/', function() {
+   dd(app('foo'));
+});
 
 
 

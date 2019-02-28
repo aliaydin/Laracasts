@@ -1,8 +1,9 @@
 ## Core Concepts: Service Providers ##
 
-`app\Providers` klasörü içerisinde ServiceProvider lar bulunur. Bunların 2 temel metodu vardır.
+`app\Providers` klasörü içerisinde `ServiceProvider` lar bulunur. Bunların 2 temel metodu vardır.
 
 `register()` medotu `ServiceContainer` a birşeyleri bağlamak için kullanılır.
+
 `AppServiceProvider.php` içerisinde `register` metoduna `foo` isminde bir metodu container a ekliyorum.
 
 ```
@@ -11,11 +12,25 @@ $this->app->singleton("foo", function() {
 });
 ```
 
+`web.php` içersinde
+
+```
+Route::get('/', function () {
+    dd(app('foo'));
+```
+
+ile `bar` sonucu elde edilir.
+
+Yani aslında `app()->bind()` ile yaptığımız işi bu sefer `Provider` aracılığı ile otomatik yaptık.
+
 Laravel yüklenirken `congif/app.php` dosyasında `providers` bölümünde bulunan tüm provider ları yükler.
 
-Yükleme işlemi için ilk olarak onların `register()` metotlarını çağırır. Tümü için bu işlem bitince, her birinin boot metotlarını çağırır. `Boot` metodu sırasında FW yüklenmiş olacağı için diğer comp lara ihtiyaç varsa kod buraya yazılmalıdır.
+Yükleme işlemi için ilk olarak herbirinin `register()` metotlarını çağırır. 
+Tümü için bu işlem bitince, her birinin boot metotlarını çağırır. 
+`Boot` metodu sırasında FW yüklenmiş olacağı için diğer comp lara ihtiyaç varsa kod buraya yazılmalıdır.
 
 Önceki ders kodlana Twitter servisi `AppServiceProvider` da yüklenebilir.
+Burada `Twitter::class` static metodu bize sınıfın adını `string` olarak döner.
 
 ```
 use App\Services\Twitter; ile namespace i ekledim.
@@ -24,7 +39,9 @@ $this->app->singleton(Twitter::class, function() {
     return new Twitter('api-key');
 });
 ```
+
 `web.php` içersinde
+
 ```
 Route::get('/', function (Twitter $twitter) {
     dd($twitter);
