@@ -43,6 +43,7 @@ Route::get('/', function (Twitter $twitter) {
 
 // Core Concepts: Service Providers
 Route::get('/', function (Twitter $twitter) {
+
     dd($twitter);
     // dd(app('foo'));
 });
