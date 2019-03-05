@@ -41,3 +41,5 @@
 [Core Concepts: Service Container and Auto-Resolution](CoreConcepts_ServiceContainerAndAuto-Resolution.md)
 
 [Core Concepts: Service Providers](CoreConcepts_ServiceProviders.md)
+
+[Core Concepts: Configuration and Environments](CoreConcepts_ConfigurationAndEnvironments.md)
