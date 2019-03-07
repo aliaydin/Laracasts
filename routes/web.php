@@ -21,6 +21,8 @@ use App\Services\Twitter;
 use Illuminate\Filesystem\Filesystem;
 use App\Repositories\UserRepository;
 
+Auth::routes();
+
 // Core Concepts: Service Container and Auto-Resolution
 app()->bind('example', function () {
     return new \App\Example();
@@ -28,7 +30,7 @@ app()->bind('example', function () {
 
 // Core Concepts: Service Container and Auto-Resolution
 app()->singleton("twitter", function () {
-    dd("he");
+    dd("twitter app le bağlı singleton dan sesleniyor");
     return new App\Services\Twitter('api_key'); // config('services.twitter.api_key');
 });
 
@@ -44,8 +46,13 @@ Route::get('/', function (Twitter $twitter) {
 // Core Concepts: Service Providers
 Route::get('/', function (Twitter $twitter) {
 
-    dd($twitter);
+    // CoreConcepts_ConfigurationAndEnvironments
+    // dd($twitter);
+    // Core Concepts: Service Providers
     // dd(app('foo'));
+    // A Full Registration System in Seconds
+    return view('home');
+
 });
 
 
@@ -142,3 +149,7 @@ Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 // Route::patch('/tasks/{task}', 'ProjectTasksController@update'); // CompletedTasksController geldi
 Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
 Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
