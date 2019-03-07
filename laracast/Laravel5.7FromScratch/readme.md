@@ -44,4 +44,4 @@
 
 [Core Concepts: Configuration and Environments](CoreConcepts_ConfigurationAndEnvironments.md)
 
-[A Full Registration System in Seconds](AFullRegistrationSystemInSeconds)
+[A Full Registration System in Seconds](AFullRegistrationSystemInSeconds.md)
