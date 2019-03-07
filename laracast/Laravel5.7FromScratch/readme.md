@@ -43,3 +43,5 @@
 [Core Concepts: Service Providers](CoreConcepts_ServiceProviders.md)
 
 [Core Concepts: Configuration and Environments](CoreConcepts_ConfigurationAndEnvironments.md)
+
+[A Full Registration System in Seconds](AFullRegistrationSystemInSeconds)
