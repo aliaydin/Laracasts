@@ -152,6 +152,10 @@ Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 Auth::routes();
 
 
+// Core Concepts: Middleware
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
+// Core Concepts: Middleware
+Route::get('singup', 'HomeController@singup')->middleware('guest');
 

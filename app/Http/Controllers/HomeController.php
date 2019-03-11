@@ -26,4 +26,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function singup()
+    {
+        return "If user is already login, dont show this page";
+    }
 }
