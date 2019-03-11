@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function __construct()
     {
         // Core Concepts: Middleware
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
