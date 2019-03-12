@@ -8,19 +8,32 @@ use Illuminate\FileSystem\FileSystem;
 class ProjectsController extends Controller
 {
 
+
+    public function __construct()
+    {
+        // You May Only View Your Projects
+
+        // $this->middleware('auth');
+        // $this->middleware('auth')->only(['store', 'destroy']);
+        $this->middleware('auth')->except(['show']); // Sadece show herkese açık olsun şimdilik
+
+    }
+
     public function index()
     {
+
         // auth()->user()->projects; // sadece o kullanıcıya ait projeler.??
         // return $projects; // json formatında veriyi gönder.
 
-        $projects = Project::all(); // \app\Project:all();
+        $projects = Project::where('owner_id', auth()->id())->get(); // \app\Project:all();
         return view('projects.index', compact('projects')); // return view('projects.index', ['projects' => $projects]); // default
     }
 
     // Core Concepts: Service Container and Auto-Resolution
-    public function show(FileSystem $file)
+    // public function show(FileSystem $file)
+
+    public function show(Project $project)
     {
-        dd($file);
         return view('projects.show', compact('project'));
         //return view('projects.show', compact('project'));
     }
@@ -46,6 +59,7 @@ class ProjectsController extends Controller
             'description' => 'required'
         ]);
 
+        $validated['owner_id'] = auth()->id();
         Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
 
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
@@ -83,6 +97,7 @@ class ProjectsController extends Controller
     // Faking PATCH and DELETE Requests
     public function edit(Project $project) // example.com/projects/{id}/edit
     {
+
         // Faking PATCH and DELETE Requests
         // $project = Project::findOrFail($id); // edit update destroy ve show için bu işlem yapıldı. $id gitti Project $project geldi.
 

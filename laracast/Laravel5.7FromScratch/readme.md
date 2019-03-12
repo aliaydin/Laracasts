@@ -47,3 +47,6 @@
 [A Full Registration System in Seconds](AFullRegistrationSystemInSeconds.md)
 
 [Core Concepts: Middleware](CoreConcepts_Middleware.md)
+
+[You May Only View Your Projects](YouMayOnlyViewYourProjects.md)
+

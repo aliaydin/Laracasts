@@ -98,7 +98,7 @@ Route::get('/about', function() { // Bu yaklaşım statik ve bussiness layer olm
 Route::get('/about', 'PageController@about');
 
 // Eloquent, Namespacing, and MVC
-Route::get('/projects', 'ProjectsController@index');
+// Route::get('/projects', 'ProjectsController@index');
 
 
 /*
@@ -133,18 +133,19 @@ Route::patch('/projects/{project}', 'ProjectsController@update');
 Route::delete('/projects/{project}', 'ProjectsController@destroy');
 */
 
+// // You May Only View Your Projects ->middleware('auth')
 Route::resource('projects', 'ProjectsController'); // Yukarıdaki 7 rota tanımını karşılayan tek rota
 
 // Form Handling and CSRF Protection
-Route::get('/projects/create', 'ProjectsController@create');
-Route::post('/projects', 'ProjectsController@store');
+// Route::get('/projects/create', 'ProjectsController@create');
+// Route::post('/projects', 'ProjectsController@store');
 
 // Form Action Considerations
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 // Create New Project Tasks
 // Route::post('/tasks', 'ProjectTasksController@store'); // Kısa versiyonu tercih etmiyorum.
-Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
+// Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 
 // Route::patch('/tasks/{task}', 'ProjectTasksController@update'); // CompletedTasksController geldi
 Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
