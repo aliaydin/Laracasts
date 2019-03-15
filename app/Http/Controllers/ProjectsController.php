@@ -35,10 +35,15 @@ class ProjectsController extends Controller
     public function show(Project $project)
     {
         // Authorization Essentials
+
+        // 3. versiyon Gate Facade
+        // abort_if (\Gate::denies('update', $project), 403);
+        abort_unless(\Gate::allows('update', $project), 403);
+
         // 2. versiyon policy kullanarak
-        $this->authorize('view', $project);
+        // $this->authorize('view', $project); // methot changed to update
 
-
+        // $this->authorize('update', $project); // 2. versiyon
 
 
         // 1. versiyon direkt elle kontrol

@@ -65,6 +65,16 @@ Yani aslında bizim ProjectPolicy de tanımladığımız view metodunu $project 
 Aslında bu kontrol show, edit, update gibi tüm metotlar için aynı şekilde yapılmalı. 
 Bu yüzden policy deki diğer metotları silip view deki kodu update metoduna taşıdık. 
 `authorize` metodu ile çağırırken artık 1. parametreye `'update'` dememiz gerekiyor.
+update metodunun ilk parametresi olan User $user Laravel tarafından sağlanıyor. Eğer guest ihtimali de varsa ?User olarak kullan.
 
- 
+Üçüncü bir yöntem olarak Laravel in Gate facade ı kullanılabilir. \Gate::allows ya da \Gate::denies metotları yeterli.
+
+`abort_if (\Gate::denies('update', $project), 403);` 
+
+Burada Gate i uygulamaya girişin yapıldığı büyük bir kapı gibi düşünebiliriz. Eğer Gate $project için update metodunu denies ediyorsa abort et.
+
+`abort_unless(\Gate::allows('update', $project), 403);` 
+
+
+
 
