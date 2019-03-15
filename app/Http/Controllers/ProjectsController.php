@@ -34,6 +34,20 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
+        // Authorization Essentials
+        // 2. versiyon policy kullanarak
+        $this->authorize('view', $project);
+
+
+
+
+        // 1. versiyon direkt elle kontrol
+        /*if ($project->owner_id != auth()->id()) { // abort_if ile daha kısasını yazacağım.
+            abort(403);
+        }*/
+        // abort_if($project->owner_id != auth()->id(), 403); // 1. versiyon, kısa hali
+
+
         return view('projects.show', compact('project'));
         //return view('projects.show', compact('project'));
     }

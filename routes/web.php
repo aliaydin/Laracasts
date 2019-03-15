@@ -145,7 +145,7 @@ Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 // Create New Project Tasks
 // Route::post('/tasks', 'ProjectTasksController@store'); // Kısa versiyonu tercih etmiyorum.
-// Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
+Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 
 // Route::patch('/tasks/{task}', 'ProjectTasksController@update'); // CompletedTasksController geldi
 Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');

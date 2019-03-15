@@ -50,3 +50,6 @@
 
 [You May Only View Your Projects](YouMayOnlyViewYourProjects.md)
 
+[Authorization Essentials](AuthorizationEssential.md)
+ 
+ 
