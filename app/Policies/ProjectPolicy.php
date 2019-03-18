@@ -42,7 +42,7 @@ class ProjectPolicy
      */
     public function update(User $user, Project $project)
     {
-        return $project->owner_id == $user->id;
+        return $project->owner_id == $user->id; // || $user_id = 5; (admin id si 5 ise :) )
     }
 
     /**

@@ -36,14 +36,16 @@ class ProjectsController extends Controller
     {
         // Authorization Essentials
 
+        // 4. versiyon Route (web.php) içerisinde middleware kullanarak.
+
         // 3. versiyon Gate Facade
         // abort_if (\Gate::denies('update', $project), 403);
-        abort_unless(\Gate::allows('update', $project), 403);
+        // abort_unless(\Gate::allows('update', $project), 403);
 
         // 2. versiyon policy kullanarak
+        // $this->authorize('update', $project); // 2. versiyon
         // $this->authorize('view', $project); // methot changed to update
 
-        // $this->authorize('update', $project); // 2. versiyon
 
 
         // 1. versiyon direkt elle kontrol
