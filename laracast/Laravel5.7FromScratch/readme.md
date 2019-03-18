@@ -6,7 +6,7 @@
 
 [Blade Layout Files](BladeLayoutFiles.md)
 
-[Sending Date to Your Views](SendingDataToYourViews.md)
+[Sending Data to Your Views](SendingDataToYourViews.md)
 
 [Controllers 101](Controllers101.md)
 
