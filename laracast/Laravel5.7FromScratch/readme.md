@@ -52,4 +52,4 @@
 
 [Authorization Essentials](AuthorizationEssential.md)
  
- 
+[Simpler Debugging With Laravel Telescope](SimplerDebuggingWithLaravelTelescope.md)
