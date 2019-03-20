@@ -4,6 +4,10 @@
 
     <h2> {{ $project->title }}</h2>
 
+    @can('update', $project)
+        Update Linki burada olmalı.
+    @endcan
+
     <div class="content"> {{ $project->description }} </div>
     <p>
         <a href="{{ url('projects/' . $project->id) }}/edit">Edit</a>

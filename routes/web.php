@@ -134,7 +134,10 @@ Route::delete('/projects/{project}', 'ProjectsController@destroy');
 */
 
 // // You May Only View Your Projects ->middleware('auth')
-Route::resource('projects', 'ProjectsController'); // Yukarıdaki 7 rota tanımını karşılayan tek rota
+// Route::resource('projects', 'ProjectsController'); // Yukarıdaki 7 rota tanımını karşılayan tek rota
+
+// Authorization Essentials
+Route::resource('projects', 'ProjectsController')->middleware('can:update,project');
 
 // Form Handling and CSRF Protection
 // Route::get('/projects/create', 'ProjectsController@create');

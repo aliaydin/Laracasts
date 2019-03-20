@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ProjectCreated;
 use App\Project;
 use Illuminate\FileSystem\FileSystem;
 
@@ -26,6 +27,17 @@ class ProjectsController extends Controller
         // return $projects; // json formatında veriyi gönder.
 
         $projects = Project::where('owner_id', auth()->id())->get(); // \app\Project:all();
+
+        // dump($projects); // Simpler Debugging With Laravel Telescope
+
+        // Simpler Debugging With Laravel Telescope
+        /*cache()->rememberForever('stats', function() {
+           return ['lessons' => 130, 'hours' => 1300, 'series' => 7];
+        });*/
+
+        $stats = cache()->get('stats');
+        dump($stats);
+
         return view('projects.index', compact('projects')); // return view('projects.index', ['projects' => $projects]); // default
     }
 
@@ -35,9 +47,16 @@ class ProjectsController extends Controller
     public function show(Project $project)
     {
         // Authorization Essentials
-        // 2. versiyon policy kullanarak
-        $this->authorize('view', $project);
 
+        // 4. versiyon Route (web.php) içerisinde middleware kullanarak.
+
+        // 3. versiyon Gate Facade
+        // abort_if (\Gate::denies('update', $project), 403);
+        // abort_unless(\Gate::allows('update', $project), 403);
+
+        // 2. versiyon policy kullanarak
+        // $this->authorize('update', $project); // 2. versiyon
+        // $this->authorize('view', $project); // methot changed to update
 
 
 
@@ -74,9 +93,16 @@ class ProjectsController extends Controller
         ]);
 
         $validated['owner_id'] = auth()->id();
-        Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
+
+        // Simpler Debugging With Laravel Telescope ($project değişkeni mailde kullanılmak için eklendi.)
+        $project = Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
 
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
+
+        // Simpler Debugging With Laravel Telescope
+        \Mail::to('mstfemk@gmail.com')->send(
+            new ProjectCreated($project)
+        );
 
         return redirect('projects');
 
