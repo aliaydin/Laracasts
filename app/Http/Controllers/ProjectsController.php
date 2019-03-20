@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ProjectCreated;
 use App\Project;
 use Illuminate\FileSystem\FileSystem;
 
@@ -26,6 +27,17 @@ class ProjectsController extends Controller
         // return $projects; // json formatında veriyi gönder.
 
         $projects = Project::where('owner_id', auth()->id())->get(); // \app\Project:all();
+
+        // dump($projects); // Simpler Debugging With Laravel Telescope
+
+        // Simpler Debugging With Laravel Telescope
+        /*cache()->rememberForever('stats', function() {
+           return ['lessons' => 130, 'hours' => 1300, 'series' => 7];
+        });*/
+
+        $stats = cache()->get('stats');
+        dump($stats);
+
         return view('projects.index', compact('projects')); // return view('projects.index', ['projects' => $projects]); // default
     }
 
@@ -81,9 +93,16 @@ class ProjectsController extends Controller
         ]);
 
         $validated['owner_id'] = auth()->id();
-        Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
+
+        // Simpler Debugging With Laravel Telescope ($project değişkeni mailde kullanılmak için eklendi.)
+        $project = Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
 
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
+
+        // Simpler Debugging With Laravel Telescope
+        \Mail::to('mstfemk@gmail.com')->send(
+            new ProjectCreated($project)
+        );
 
         return redirect('projects');
 
