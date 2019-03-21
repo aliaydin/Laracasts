@@ -23,10 +23,11 @@ class ProjectsController extends Controller
     public function index()
     {
 
-        // auth()->user()->projects; // sadece o kullanıcıya ait projeler.??
+        // Don't Forget Readability
+        $projects = auth()->user()->projects; // sadece o kullanıcıya ait projeler.
         // return $projects; // json formatında veriyi gönder.
 
-        $projects = Project::where('owner_id', auth()->id())->get(); // \app\Project:all();
+        // $projects = Project::where('owner_id', auth()->id())->get(); // \app\Project:all(); // Don't Forget Readability lesson remove this line
 
         // dump($projects); // Simpler Debugging With Laravel Telescope
 
@@ -86,12 +87,15 @@ class ProjectsController extends Controller
     public function store()
     {
 
+        // Don't Forget Readability : Move this code in a method
+        /*
         // Validation: validate metodu işini bitirdikten sonra bize alanları döner.
         $validated = request()->validate([ // Eğer bu kısmı geçemezse redirect edecek.
             'title' => ['required', 'min:3'],
             'description' => 'required'
         ]);
-
+        */
+        $validated = $this->validateProject();
         $validated['owner_id'] = auth()->id();
 
         // Simpler Debugging With Laravel Telescope ($project değişkeni mailde kullanılmak için eklendi.)
@@ -146,7 +150,12 @@ class ProjectsController extends Controller
 
     public function update(Project $project) //(Project $project)
     {
-        Project::update(request(['title', 'description'])); // 2. yöntem tek satır ve en temiz kod.
+        // Don't Forget Readability
+        $validated = $this->validateProject();
+        $project->update($validated);
+
+        // Don't Forget Readability : Use $validated approach
+        // Project::update(request(['title', 'description'])); // 2. yöntem tek satır ve en temiz kod.
 
         return redirect('/projects'); // Normalde burada show a gitmesi gerekir. Şimdilik böyle
 
@@ -180,5 +189,12 @@ class ProjectsController extends Controller
         return redirect('/projects'); */
     }
 
+    public function validateProject()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => 'required'
+        ]);
+    }
 
 }
