@@ -24,6 +24,8 @@
 
       </form>
 
+      @include('errors')
+
       <form action="{{ url('projects/' . $project->id) }}" method="post">
 
         @method('DELETE')
