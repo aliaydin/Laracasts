@@ -150,7 +150,12 @@ class ProjectsController extends Controller
 
     public function update(Project $project) //(Project $project)
     {
-        Project::update(request(['title', 'description'])); // 2. yöntem tek satır ve en temiz kod.
+        // Don't Forget Readability
+        $validated = $this->validateProject();
+        $project->update($validated);
+
+        // Don't Forget Readability : Use $validated approach
+        // Project::update(request(['title', 'description'])); // 2. yöntem tek satır ve en temiz kod.
 
         return redirect('/projects'); // Normalde burada show a gitmesi gerekir. Şimdilik böyle
 
