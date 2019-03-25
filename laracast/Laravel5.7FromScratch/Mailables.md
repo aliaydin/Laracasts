@@ -1,8 +1,8 @@
 ## Mailables ##
 
-It is a side-effect to send mail in store method in ProjectsController.
+It is a side-effect to send mail in `store` method in `ProjectsController`.
 
-`.env` file we choose `MAIL_DRIVER=log`, so actually we didn't send a mail.
+In `.env` file, we choose `MAIL_DRIVER=log`, so actually we didn't send a mail.
 
 To send a mail we must do a couple of things.
 
@@ -16,7 +16,7 @@ In our send mail code, we use hardcoded mail address. `\Mail::to('mstfemk@gmail.
 
 But, in fact, we must use mail address who created that project.
 
-Project has owner_id so we can make a relation use this field. Every project belongs to a owner.
+Project has `owner_id` so we can make a relation use this field. Every project belongs to a owner.
 We need to define this relation in Project model.
 
 `return $this->belongsTo(User::class);`
