@@ -9,7 +9,6 @@ use Illuminate\FileSystem\FileSystem;
 class ProjectsController extends Controller
 {
 
-
     public function __construct()
     {
         // You May Only View Your Projects
@@ -67,7 +66,6 @@ class ProjectsController extends Controller
         }*/
         // abort_if($project->owner_id != auth()->id(), 403); // 1. versiyon, kısa hali
 
-
         return view('projects.show', compact('project'));
         //return view('projects.show', compact('project'));
     }
@@ -104,7 +102,7 @@ class ProjectsController extends Controller
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
 
         // Simpler Debugging With Laravel Telescope
-        \Mail::to('mstfemk@gmail.com')->send(
+        \Mail::to($project->owner->email)->send(
             new ProjectCreated($project)
         );
 

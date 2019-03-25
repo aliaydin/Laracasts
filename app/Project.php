@@ -11,6 +11,12 @@ class Project extends Model
 
     protected $guarded = [];
 
+    // Mailables
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     // Your First Eloquent Relationships
     public function tasks() {
       return $this->hasMany(Task::class);
