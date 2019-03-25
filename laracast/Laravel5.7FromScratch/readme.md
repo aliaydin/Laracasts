@@ -55,3 +55,6 @@
 [Simpler Debugging With Laravel Telescope](SimplerDebuggingWithLaravelTelescope.md)
 
 [Don't Forget Readability](DontForgetReadability.md)
+
+[Mailables](Mailables.md)
+
