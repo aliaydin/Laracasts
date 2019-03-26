@@ -59,3 +59,5 @@
 [Mailables](Mailables.md)
 
 [Model Hooks and Seesaws](ModelHooksAndSeesaws.md)
+
+[Custom Events and Listeners](CustomEventsAndListeners.md)
