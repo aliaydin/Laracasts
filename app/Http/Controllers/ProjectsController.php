@@ -101,11 +101,12 @@ class ProjectsController extends Controller
 
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
 
+        /* // Model Hooks and Seesaws : I mode this code to Project model
         // Simpler Debugging With Laravel Telescope
         \Mail::to($project->owner->email)->send(
             new ProjectCreated($project)
         );
-
+        */
         return redirect('projects');
 
         /*
