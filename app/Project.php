@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Mail\ProjectCreated;
 
 class Project extends Model
 {
@@ -11,6 +12,18 @@ class Project extends Model
 
     protected $guarded = [];
 
+    // Model Hooks and Seesaws
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($project) {
+            // this code will only execute after a project created and store to DB.
+            \Mail::to($project->owner->email)->send(
+                new ProjectCreated($project)
+            );
+        });
+    }
     // Mailables
     public function owner()
     {
