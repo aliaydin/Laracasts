@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ProjectCreated;
+use App\Events\ProjectCreated;
+// use App\Mail\ProjectCreated; // I named Event same as this. So I need to comment this code.
 use App\Project;
 use Illuminate\FileSystem\FileSystem;
 
@@ -99,6 +100,7 @@ class ProjectsController extends Controller
         // Simpler Debugging With Laravel Telescope ($project değişkeni mailde kullanılmak için eklendi.)
         $project = Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
 
+        event(new ProjectCreated($project));
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
 
         /* // Model Hooks and Seesaws : I mode this code to Project model
