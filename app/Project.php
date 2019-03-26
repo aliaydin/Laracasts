@@ -12,9 +12,13 @@ class Project extends Model
 
     protected $guarded = [];
 
+
+    // Custom Events and Listeners: This lesson remove static boot function
+    /*
     // Model Hooks and Seesaws
     protected static function boot()
     {
+
         parent::boot();
 
         static::created(function ($project) {
@@ -24,6 +28,7 @@ class Project extends Model
             );
         });
     }
+    */
     // Mailables
     public function owner()
     {
