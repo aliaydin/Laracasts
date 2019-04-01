@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Mail\ProjectCreated;
+use App\Events\ProjectCreated;
 
 class Project extends Model
 {
@@ -11,6 +11,12 @@ class Project extends Model
     // protected $fillable = ['title', 'description']; // whileList
 
     protected $guarded = [];
+
+    // Custom Events and Listeners : Eloquent event
+    protected $dispatchesEvents = [
+        'created' => ProjectCreated::class
+    ];
+
 
 
     // Custom Events and Listeners: This lesson remove static boot function

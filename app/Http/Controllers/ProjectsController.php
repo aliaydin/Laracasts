@@ -100,7 +100,8 @@ class ProjectsController extends Controller
         // Simpler Debugging With Laravel Telescope ($project değişkeni mailde kullanılmak için eklendi.)
         $project = Project::create($validated); // 4. Validation sonrası alanları tekrar yollamamak gerekiyor.
 
-        event(new ProjectCreated($project));
+        // Custom Events and Listeners : Use eloquent standart model
+        // event(new ProjectCreated($project));
         // Project::create(request(['title', 'description'])); // 3. En temiz kod.
 
         /* // Model Hooks and Seesaws : I mode this code to Project model
