@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\SubscriptionRenewalFailed;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,5 +31,12 @@ class HomeController extends Controller
     public function singup()
     {
         return "If user is already login, dont show this page";
+    }
+
+    public function notify()
+    {
+        $user = auth()->user();
+        $user->notify(new SubscriptionRenewalFailed);
+        return 'done';
     }
 }

@@ -163,3 +163,4 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 // Core Concepts: Middleware
 Route::get('singup', 'HomeController@singup')->middleware('guest');
 
+Route::get('home/notify', 'HomeController@notify');
