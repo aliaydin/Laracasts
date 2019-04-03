@@ -62,4 +62,4 @@
 
 [Custom Events and Listeners](CustomEventsAndListeners.md)
 
-[User Notifications](UserNofitications.md)
+[User Notifications](UserNotifications.md)
