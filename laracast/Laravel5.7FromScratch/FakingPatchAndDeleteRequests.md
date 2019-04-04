@@ -1,7 +1,7 @@
 ## Faking PATCH and DELETE Requests ##
 
 Formlar için sadece `POST` ve `GET` istekleri tanımlıdır. 
-`PATH` ve `DELETE` Verb lerini geçerli kılmak için Laravel de ufak bir trick kullanmak gerekir.
+`PATCH` ve `DELETE` Verb lerini geçerli kılmak için Laravel de ufak bir trick kullanmak gerekir.
 
 Düzenleme formunu göstermek için `edit` actionu kullanılacak.
 
@@ -11,7 +11,7 @@ Burada `edit($id)` yerine istediğimiz değişkeni kullanabiliriz. Sonuç olarak
 
 `edit` metodu geriye `return view('projects.edit'); // ControllerName.ViewName` döndürecektir. 
 
-View ismi verirken `ConstollerName.ActionName` kullanmak gerekir.
+View ismi verirken `ControllerName.ActionName` kullanmak gerekir.
 Eğer `Controller` da bir domain altında ise onun da başına `DomainName.` gelmelidir.
 
 `var_dump(); die;` işlemi için Laravel `dd()` metodunu eklemiş. Basit debug için kullanılabilir. `dieAndDump` anlamına gelir.
