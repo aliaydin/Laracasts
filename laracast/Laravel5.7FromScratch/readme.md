@@ -63,3 +63,5 @@
 [Custom Events and Listeners](CustomEventsAndListeners.md)
 
 [User Notifications](UserNotifications.md)
+
+[Laravel And The Front-End](LaravelAndTheFrontEnt.md)
