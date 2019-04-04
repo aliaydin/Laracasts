@@ -64,4 +64,4 @@
 
 [User Notifications](UserNotifications.md)
 
-[Laravel And The Front-End](LaravelAndTheFrontEnt.md)
+[Laravel And The Front-End](LaravelAndTheFrontEnd.md)
